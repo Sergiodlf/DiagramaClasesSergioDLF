@@ -1,6 +1,7 @@
 package Ejercicio2;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Factura {
 	private String cliente;
@@ -44,4 +45,22 @@ public class Factura {
 		}
 		return frase;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cliente);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Factura other = (Factura) obj;
+		return Objects.equals(cliente.toUpperCase(), other.cliente.toUpperCase());
+	}
+	
 }
